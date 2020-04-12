@@ -11,7 +11,8 @@ import telethon.sync
 from telethon.tl.functions.users import GetFullUserRequest
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from telethon import events, errors, functions, types
-from userbot import ALIVE_NAME, LESS_SPAMMY, PMPERMIT_MENU
+from userbot import ALIVE_NAME, LESS_SPAMMY
+from userbot.heroku_config import PMPERMIT_MENU
 from userbot.utils import admin_cmd
 
 
