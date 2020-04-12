@@ -11,7 +11,7 @@ import telethon.sync
 from telethon.tl.functions.users import GetFullUserRequest
 import userbot.plugins.sql_helper.pmpermit_sql as pmpermit_sql
 from telethon import events, errors, functions, types
-from userbot import ALIVE_NAME, LESS_SPAMMY
+from userbot import ALIVE_NAME, LESS_SPAMMY, PMPERMIT_MENU
 from userbot.utils import admin_cmd
 
 
@@ -23,7 +23,7 @@ PREV_REPLY_MESSAGE = {}
 async def _(event):
     chat_id = event.from_id
     userid = event.sender_id
-    if not pmpermit_sql.is_approved(chat_id):
+    if not pmpermit_sql.is_approved(chat_id) and Var.PMPERMIT_MENU != False:
         chat = await event.get_chat()
         if event.fwd_from:
             return
