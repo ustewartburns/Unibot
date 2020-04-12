@@ -36,7 +36,7 @@ if ENV:
         #
         NO_SONGS = bool(os.environ.get("NO_SONGS", False))
         #
-        PMPERMIT_MENU = bool(os.environ.get("NO_SONGS", False))
+        PMPERMIT_MENU = bool(os.environ.get("PMPERMIT_MENU", False))
         #
         # DO NOT EDIT BELOW THIS LINE IF YOU DO NOT KNOW WHAT YOU ARE DOING
         # TG API limit. A message can have maximum 4096 characters!
