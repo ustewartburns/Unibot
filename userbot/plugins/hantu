@@ -125,7 +125,7 @@ async def rm_deletedacc(show):
 
     if Config.G_BAN_LOGGER_GROUP is not None:
         await show.client.send_message(
-            Config.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
+            Config.G_BAN_LOGGER_GROUP, "#BERSIH\n"
             f"Selesai Membersihkan **{del_u}** akun yang dihapus(s) !!\
             \nCHAT: {show.chat.title}(`{show.chat_id}`)")
 
