@@ -50,7 +50,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
             buttons = paginate_help(
                 current_page_number - 1,
                 CMD_LIST,  # pylint:disable=E0602
-                "helpme"
+                "tolongaku"
             )
             # https://t.me/TelethonChat/115200
             await event.edit(buttons=buttons)
