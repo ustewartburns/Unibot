@@ -1,6 +1,6 @@
 from userbot import CMD_LIST
 
-@command(pattern="^.help ?(.*)")
+@command(pattern="^.tolongaku ?(.*)")
 async def cmd_list(event):
     if not event.text[0].isalpha() and event.text[0] not in ("/", "#", "@", "!"):
         tgbotusername = Var.TG_BOT_USER_NAME_BF_HER
@@ -14,22 +14,22 @@ async def cmd_list(event):
                     string += "\n"
                 string += "\n"
             if len(string) > 4095:
-                await borg.send_message(event.chat_id, "Do .help cmd")
+                await borg.send_message(event.chat_id, "Coba .tolongaku cmd")
                 await asyncio.sleep(5)
             else:
                 await event.edit(string)
         elif input_str:
             if input_str in CMD_LIST:
-                string = "Commands found in {}:\n".format(input_str)
+                string = "Perintah ditemukan di {}:\n".format(input_str)
                 for i in CMD_LIST[input_str]:
                     string += "    " + i
                     string += "\n"
                 await event.edit(string)
             else:
-                await event.edit(input_str + " is not a valid plugin!")
+                await event.edit(input_str + " bukan plugin yang valid!")
         else:
-            help_string = """Userbot Helper.. Provided by @A_Dark_Princ3 \n[Check out this dope af website](https://www.moddingunited.xyz/) \n
-`Userbot Helper to reveal all the commands`\n__Do .help plugin_name for commands, in case popup doesn't appear.__"""
+            help_string = """Userbot Helper by \n@A_Dark_Princ3(https://www.moddingunited.xyz/) \n
+`Userbot Helper untuk menampilkan semua perintah`\n__Atau .tolongaku plugin_name untuk perintah, jika popup tidak muncul.__"""
             results = await bot.inline_query(  # pylint:disable=E0602
                 tgbotusername,
                 help_string
