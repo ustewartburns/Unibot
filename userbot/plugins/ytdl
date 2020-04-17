@@ -106,7 +106,7 @@ async def download_video(v_url):
                 'preferredquality': '144',
             }],
             'outtmpl':
-            '%(id)s.mp3',
+            '%(title)-(uploader)s.m4a',
             'quiet':
             True,
             'logtostderr':
