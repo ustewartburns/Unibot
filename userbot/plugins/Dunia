@@ -1,5 +1,5 @@
 # (c) @UniBorg
-# Sebelumnya ditulis oleh @UniBorg diedit @I_m_Rock
+# Sebelumnya ditulis oleh @UniBorg diedit oleh @I_m_Rock
 
 from telethon import events
 import asyncio
