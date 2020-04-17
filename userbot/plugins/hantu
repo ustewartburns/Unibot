@@ -1,11 +1,11 @@
-# This Source Code Form is subject to the terms of the Mozilla Public
-# License, v. 2.0. If a copy of the MPL was not distributed with this
-# file, You can obtain one at http://mozilla.org/MPL/2.0/.
+# Formulir Source Code ini tunduk pada ketentuan Mozilla Public
+# Lisensi, v. 2.0. Jika salinan MPL tidak didistribusikan dengan ini
+# file, Anda dapat memperolehnya di http://mozilla.org/MPL/2.0/.
 
-"""Cmd= `.zombie`
-Usage: Searches for deleted accounts in a groups and channels.
-Use .zombies clean to remove deleted accounts from the groups and channels.
-\nPorted by ©[NIKITA](t.me/kirito6969) and ©[EYEPATCH](t.me/NeoMatrix90)"""
+"""Cmd= `.hantu`
+Cara Pemakaian: Mencari akun yang dihapus dalam grup dan saluran.
+Gunakan .hantu utk membersihkan akun yang dihapus dari grup dan saluran.
+\nPorted oleh ©[NIKITA](t.me/kirito6969) dan ©[EYEPATCH](t.me/NeoMatrix90)"""
 
 from telethon import events
 from userbot.utils import admin_cmd
@@ -58,25 +58,25 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
 
-@borg.on(admin_cmd(pattern=f"zombies", allow_sudo=True))
-@borg.on(events.NewMessage(pattern="^.zombies(?: |$)(.*)", outgoing=True))
+@borg.on(admin_cmd(pattern=f"hantu", allow_sudo=True))
+@borg.on(events.NewMessage(pattern="^.hpshantu(?: |$)(.*)", outgoing=True))
 async def rm_deletedacc(show):
-    """ For .zombies command, list all the ghost/deleted/zombie accounts in a chat. """
+    """ Untuk perintah adalah .hantu, menampilkan daftar semua akun hantu/dihapus/zombie dalam obrolan. """
 
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "`No deleted accounts found, Group is clean`"
+    del_status = "`Tidak ada lagi akun yang dihapus ditemukan, Grup bersih`"
 
-    if con != "clean":
-        await show.edit("`Searching for ghost/deleted/zombie accounts...`")
+    if con != "dibersihkan":
+        await show.edit("`Mencari akun hantu/dihapus/zombie...`")
         async for user in show.client.iter_participants(show.chat_id):
 
             if user.deleted:
                 del_u += 1
                 await sleep(1)
         if del_u > 0:
-            del_status = f"`Found` **{del_u}** `ghost/deleted/zombie account(s) in this group,\
-            \nclean them by using .zombies clean`"
+            del_status = f"`Ditemukan` **{del_u}** `Akun(s) hantu/dihapus/zombie dalam grup ini,\
+            \nbersihkan dengan menggunakan .hantu dibersihkan`"
         await show.edit(del_status)
         return
 
@@ -87,10 +87,10 @@ async def rm_deletedacc(show):
 
     # Well
     if not admin and not creator:
-        await show.edit("`I am not an admin here!`")
+        await show.edit("`Saya bukan admin di sini!`")
         return
 
-    await show.edit("`Deleting deleted accounts...\nOh I can do that?!?!`")
+    await show.edit("`Menghapus akun yang dihapus ...\nYa, aku bisa melakukannya?!?!`")
     del_u = 0
     del_a = 0
 
@@ -100,7 +100,7 @@ async def rm_deletedacc(show):
                 await show.client(
                     EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS))
             except ChatAdminRequiredError:
-                await show.edit("`I don't have ban rights in this group`")
+                await show.edit("`Saya tidak memiliki hak di grup ini`")
                 return
             except UserAdminInvalidError:
                 del_u -= 1
@@ -111,11 +111,11 @@ async def rm_deletedacc(show):
 
 
     if del_u > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s)"
+        del_status = f"Membersihkan **{del_u}** akun yang dihapus(s)"
 
     if del_a > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s) \
-        \n**{del_a}** deleted admin accounts are not removed"
+        del_status = f"Membersihkan **{del_u}** akun yang dihapus(s) \
+        \n**{del_a}** akun admin yang dihapus tidak dapat dihapus"
 
 
     await show.edit(del_status)
@@ -126,6 +126,6 @@ async def rm_deletedacc(show):
     if Config.G_BAN_LOGGER_GROUP is not None:
         await show.client.send_message(
             Config.G_BAN_LOGGER_GROUP, "#CLEANUP\n"
-            f"Cleaned **{del_u}** deleted account(s) !!\
+            f"Selesai Membersihkan **{del_u}** akun yang dihapus(s) !!\
             \nCHAT: {show.chat.title}(`{show.chat_id}`)")
 
