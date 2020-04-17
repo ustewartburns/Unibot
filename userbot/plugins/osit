@@ -1,5 +1,5 @@
-"""Get Telegram Profile Picture and other information
-Syntax: .whois @username"""
+"""Mencari Informasi Data Pengguna @Telegram Melalui Gambar Profil & Lainnya
+Syntax: .osit @nama pengguna"""
 
 import html
 from telethon.tl.functions.photos import GetUserPhotosRequest
@@ -9,7 +9,7 @@ from telethon.utils import get_input_location
 from userbot.utils import admin_cmd
 
 
-@borg.on(admin_cmd("whois ?(.*)"))
+@borg.on(admin_cmd("osit ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -32,11 +32,11 @@ async def _(event):
     # some people have weird HTML in their names
     first_name = html.escape(replied_user.user.first_name)
     # https://stackoverflow.com/a/5072031/4723940
-    # some Deleted Accounts do not have first_name
+    # beberapa Akun Terhapus tidak memiliki first_name
     if first_name is not None:
-        # some weird people (like me) have more than 4096 characters in their names
+        # beberapa orang aneh (seperti saya) memiliki lebih dari 4096 karakter nama
         first_name = first_name.replace("\u2060", "")
-    # inspired by https://telegram.dog/afsaI181
+    # terinspirasi oleh https://telegram.dog/afsaI181
     user_bio = replied_user.about
     if user_bio is not None:
         user_bio = html.escape(replied_user.about)
@@ -44,18 +44,18 @@ async def _(event):
     try:
         dc_id, location = get_input_location(replied_user.profile_photo)
     except Exception as e:
-        dc_id = "Need a Profile Picture to check **this**"
+        dc_id = "Pengguna Harus Memiliki Gambar Profil Untuk **Diperiksa**"
         location = str(e)
-    caption = """Extracted Userdata From Anubis' DATABASE
+    caption = """DATA PENGGUNA TELEGRAM
 ID: <code>{}</code>
-Rendi's Name: <a href='tg://user?id={}'>{}</a>
+NAMA: <a href='tg://user?id={}'>{}</a>
 Bio: {}
-DC ID: {}
-Number of PPs: {}
-Restricted? : {}
-Verified gey: {}
-Bot(nub): {}
-Groups in Common with this gey: {}
+PD ID: {}
+Jumlah Poto Profil: {}
+Dibatasi? : {}
+DiVerifikasi: {}
+Bot : {}
+Dalam Grup yang sama dengan pengguna <a href='tg://user?id={}'>{}</a>: {} Grup
 """.format(
         user_id,
         user_id,
