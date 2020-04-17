@@ -1,9 +1,9 @@
-# Thanks to @AvinashReddy3108 for this plugin
+# Terimakasih untuk @AvinashReddy3108 utk plugin ini
 
 """
-Audio and video downloader using Youtube-dl
-.yta To Download in mp3 format
-.ytv To Download in mp4 format
+Pengunduh audio dan video menggunakan Youtube-dl
+.yta Untuk Mengunduh dalam format mp3
+.ytv Untuk Mengunduh dalam format mp4
 """
 
 import os
@@ -40,7 +40,7 @@ async def progress(current, total, event, start, type_of_ps, file_name=None):
                 time_formatter(estimated_total_time)
             )
         if file_name:
-            await event.edit("{}\nFile Name: `{}`\n{}".format(
+            await event.edit("{}\nNama file: `{}`\n{}".format(
                 type_of_ps, file_name, tmp))
         else:
             await event.edit("{}\n{}".format(type_of_ps, tmp))
