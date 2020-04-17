@@ -4,7 +4,7 @@
 
 """Cmd= `.hantu`
 Cara Pemakaian: Mencari akun yang dihapus dalam grup dan saluran.
-Gunakan .hantu utk membersihkan akun yang dihapus dari grup dan saluran.
+Gunakan .hantu dibersihkan utk membersihkan akun yang dihapus dari grup dan saluran.
 \nPorted oleh ©[NIKITA](t.me/kirito6969) dan ©[EYEPATCH](t.me/NeoMatrix90)"""
 
 from telethon import events
@@ -59,7 +59,7 @@ UNMUTE_RIGHTS = ChatBannedRights(until_date=None, send_messages=False)
 
 
 @borg.on(admin_cmd(pattern=f"hantu", allow_sudo=True))
-@borg.on(events.NewMessage(pattern="^.hpshantu(?: |$)(.*)", outgoing=True))
+@borg.on(events.NewMessage(pattern="^.hantu(?: |$)(.*)", outgoing=True))
 async def rm_deletedacc(show):
     """ Untuk perintah adalah .hantu, menampilkan daftar semua akun hantu/dihapus/zombie dalam obrolan. """
 
