@@ -1,0 +1,20 @@
+"""Periksa apakah userbot hidup  - this file part of X-tra-Telegram - SnapDragon"""
+import asyncio
+from telethon import events
+from telethon.tl.types import ChannelParticipantsAdmins
+from platform import uname
+from userbot import ALIVE_NAME
+from userbot.utils import admin_cmd
+
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "No name set yet nibba, check pinned in @XtraTgBot"
+
+@command(outgoing=True, pattern="^.hidup$")
+async def amireallyalive(alive):
+    """ Untuk perintahnya balas .hidup , utk memeriksa bot berjalan atau tidak  """
+    await alive.edit("Ini Bekerja!\n\n"
+                     "`Telethon version: 6.9.0\nPython: 3.7.3\n`"
+                     "`Bot dibuat oleh: {DEFAULTUSER}\n\n"
+                     ".dunia\n\n"
+                     ".❤️\n\n"
+                     f"`[.](https://telegra.ph/file/ae980f27b08a69e37fbdf.jpg), \n\n"
+                     "")
