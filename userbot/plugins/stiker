@@ -1,5 +1,5 @@
 """membuat/mengunduh Paket Stiker Telegram tanpa menginstal aplikasi Pihak Ketiga
-Available Commands:
+Perintah yang tersedia:
 .bs [Emoji Opsional] - buat stiker
 .infop [ info paket ]
 .cs [ comot stiker]"""
