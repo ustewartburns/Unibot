@@ -177,7 +177,7 @@ async def _(event):
         file_caption = "https://t.me/RoseSupportChat/33801"
         if is_a_s:
             file_ext_ns_ion = "tgs"
-            file_caption = "Teruskan file ZIP ke @AnimatedStickersRoBot utk mendapatkan lottIE JSON containing the vector information."
+            file_caption = "Meneruskan file ZIP ke @AnimatedStickersRoBot utk mendapatkan lottIE JSON containing the vector information."
         sticker_set = await borg(GetStickerSetRequest(sticker_attrib.stickerset))
         pack_file = os.path.join(Config.TMP_DOWNLOAD_DIRECTORY, sticker_set.set.short_name, "pack.txt")
         if os.path.isfile(pack_file):
