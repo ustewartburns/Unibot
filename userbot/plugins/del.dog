@@ -1,5 +1,5 @@
 """IX.IO pastebin like site
-Syntax: .paste"""
+Syntax: .del.dog"""
 from telethon import events
 import asyncio
 from datetime import datetime
@@ -12,7 +12,7 @@ def progress(current, total):
     logger.info("Downloaded {} of {}\nCompleted {}".format(current, total, (current / total) * 100))
 
 
-@borg.on(admin_cmd("paste ?(.*)"))
+@borg.on(admin_cmd("del.dog ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -41,7 +41,7 @@ async def _(event):
         else:
             message = previous_message.message
     else:
-        message = "SYNTAX: `.paste <long text to include>`"
+        message = "SYNTAX: `.del.dog <long text to include>`"
     url = "https://del.dog/documents"
     r = requests.post(url, data=message.encode("UTF-8")).json()
     url = f"https://del.dog/{r['key']}"
