@@ -199,7 +199,7 @@ async def _(event):
                 download(document, emojis, Config.TMP_DOWNLOAD_DIRECTORY + sticker_set.set.short_name, f"{i:03d}.{file_ext_ns_ion}")
             ) for i, document in enumerate(sticker_set.documents)
         ]
-        await event.edit(f"Downloading {sticker_set.set.count} sticker(s) to .{Config.TMP_DOWNLOAD_DIRECTORY}{sticker_set.set.short_name}...")
+        await event.edit(f"Mengunduh {sticker_set.set.count} stiker(s) ke .{Config.TMP_DOWNLOAD_DIRECTORY}{sticker_set.set.short_name}...")
         num_tasks = len(pending_tasks)
         while 1:
             done, pending_tasks = await asyncio.wait(pending_tasks, timeout=2.5,
