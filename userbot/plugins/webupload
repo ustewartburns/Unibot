@@ -12,7 +12,7 @@ import time
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("Sedang Proses...")
+    await event.edit("Sedang Memproses...")
     PROCESS_RUN_TIME = 100
     input_str = event.pattern_match.group(1)
     selected_transfer = event.pattern_match.group(2)
